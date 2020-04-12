@@ -4,7 +4,7 @@ import random
 class MySGDRegression:
     def __init__(self):
         self.intercept_ = 0.0
-        self.coef_ = 0.0
+        self.coef_ = []
 
     # simple stochastic GD
     def fit(self, x, y, learningRate = 0.001, noEpochs = 1000):
