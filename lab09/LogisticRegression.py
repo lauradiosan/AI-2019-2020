@@ -10,21 +10,6 @@ class MyLogisticRegression:
     def __init__(self):
         self.intercept_ = 0.0
         self.coef_ = []
-        
-    # # use the Least Square method
-    # def fit(self, inTrain, outTrain):
-    #     outTrain =[[val] for val in outTrain]
-    #     X = np.array(inTrain)
-    #     Y = np.array(outTrain)
-    #     oneMat = np.ones(shape = Y.shape) #array of 1s 
-    #     X = np.concatenate((oneMat, X), 1)  #add to input data
-
-    #     coefficients = inv(X.transpose().dot(X)).dot(X.transpose()).dot(Y)         
-    #     coefficients = coefficients.transpose()
-    #     self.intercept_ = coefficients[0][0]
-    #     self.coef_ = coefficients[0][1:]
-        
-    #     return self.intercept_, self.coef_
 
     # use the gradient descent method
     # simple stochastic GD
@@ -51,7 +36,6 @@ class MyLogisticRegression:
 
     def predictOneSample(self, sampleFeatures):
         threshold = 0.5
-        computed01ValuesForAllModels = []
         coefficients = [self.intercept_] + [c for c in self.coef_]
         computedFloatValue = self.eval(sampleFeatures, coefficients)
         computed01Value = sigmoid(computedFloatValue)
